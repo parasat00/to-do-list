@@ -204,11 +204,20 @@ const setGeneralTheme = () => {
  let theme = localStorage.getItem("header-color");
  setTheme("header-color", theme);
 
+ theme = localStorage.getItem("content-back");
+ if(!theme) {
+  localStorage.setItem("text-color", "#121212");
+ }
+ else {
+  setTheme("content-back", theme);
+ }
+ 
+
+ 
  theme = localStorage.getItem("text-color");
  setTheme("text-color", theme);
 
- theme = localStorage.getItem("content-back");
- setTheme("content-back", theme);
+ 
 }
 
 todo_btns.forEach(btn => {

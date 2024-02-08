@@ -274,6 +274,9 @@ body {
  left: 50%;
  transform: translate(-50%, -50%);
 }
+.todo__modal-window h5 {
+ margin-top: 15px;
+}
 .todo__modal-exit {
  position: absolute;
  top: 15px;
@@ -358,6 +361,9 @@ body {
  .todo__content-list li label {
   max-width: 60%;
  }
+ .todo__modal-window {
+  width: 90%;
+ }
 }
 @media only screen and (max-width: 275px) {
  .todo__form {
@@ -377,5 +383,12 @@ body {
  }
  .todo__content-list li {
   padding-right: 0;
+ }
+ .todo__modal-window {
+  width: 100%;
+ }
+ .todo__modal-window-colors-palette {
+  width: 30px;
+  height: 30px;
  }
 }
