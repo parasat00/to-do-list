@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+ <title>ToDo List</title>
+</head>
+<body>
+ <main class="todo">
+  <section class="todo__header">
+   <section class="todo__header-banner">
+    <h1 class="todo__header-banner-completed">1</h1>
+    <div class="todo__header-banner-flex">
+     <p>Tasks</p>
+     <p class="todo__header-banner-all">/3</p>
+    </div>
+   </section>
+   <section class="todo__header-nav">
+    <button class="todo__header-nav-btns all active">
+     <i class="fa fa-list" aria-hidden="true"></i>
+    </button>
+    <button class="todo__header-nav-btns uncompleted">
+     <i class="fa fa-circle-o" aria-hidden="true"></i>
+    </button>
+    <button class="todo__header-nav-btns completed">
+     <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+    </button>
+
+    <button class="todo__header-nav-btns add">
+     <i class="fa fa-plus" aria-hidden="true"></i>
+    </button>
+   </section>
+  </section>
+
+  <section class="todo__content">
+   <div class="todo__content_all active">
+    <ul class="todo__content-list all"></ul>
+   </div>
+
+   <div class="todo__content_uncompleted">
+    <ul class="todo__content-list uncompleted"></ul>
+   </div>
+   
+   <div class="todo__content_completed">
+    <ul class="todo__content-list completed"></ul>
+   </div>
+
+  </section>
+
+  <form class="todo__form">
+   <input type="text" name="task_body" id="task_body" class="todo__form-text-input">
+   <input type="submit" value="Add" class="todo__form-btn">
+  </form>
+ </main>
+ <script src="./index.js"></script>
+</body>
+</html>
