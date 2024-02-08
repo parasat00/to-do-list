@@ -195,7 +195,20 @@ const displayList = (e) => {
 }
 
 const setTheme = (cs_var, color) => {
- document.documentElement.style.setProperty(`--${cs_var}`, color);
+ if(color) {
+  document.documentElement.style.setProperty(`--${cs_var}`, color);
+ }
+}
+
+const setGeneralTheme = () => {
+ let theme = localStorage.getItem("header-color");
+ setTheme("header-color", theme);
+
+ theme = localStorage.getItem("text-color");
+ setTheme("text-color", theme);
+
+ theme = localStorage.getItem("content-back");
+ setTheme("content-back", theme);
 }
 
 todo_btns.forEach(btn => {
@@ -227,6 +240,7 @@ sec_colors.forEach(sec => {
  })
 })
 
+setGeneralTheme();
 renderTasks();
 todo_add.addEventListener("click", showForm);
 todo_form.addEventListener("submit", addTask);
