@@ -33,8 +33,8 @@ const addTask = (e) => {
 const changeTask = (e) => {
  let id = e.target.parentNode.parentNode.dataset.id;
  let text = tasks[id].body;
- let input = todo_form.children[0];
- let btn = todo_form.children[1];
+ let input = todo_form.children[1];
+ let btn = todo_form.children[2];
  input.value = text;
  btn.value = "Change";
  todo_form.setAttribute("data-id", id);
@@ -163,14 +163,13 @@ const renderTasks = () => {
 }
 
 const showForm = () => {
- todo_form.children[0].value = "";
- todo_form.children[1].value = "Add";
+ todo_form.children[1].value = "";
+ todo_form.children[2].value = "Add";
  todo_form.classList.toggle('show');
 }
 
 const displayList = (e) => {
  filter = e.target.className.split(" ")[1];
-
  
 
  todo_btns.forEach(btn => {
