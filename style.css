@@ -80,7 +80,7 @@ body {
  cursor: pointer;
 }
 .todo__header-nav-btns .fa {
- pointer-events: none
+ pointer-events: none;
 }
 .todo__header-nav-btns:hover,
 .todo__header-nav-btns.active {
@@ -201,18 +201,19 @@ body {
 
 .todo__form {
  background-color: var(--content-back);
- padding: 10px 20px;
+ padding: 30px 20px 10px;
  display: flex;
  align-items: center;
  gap: 10px;
  position: fixed;
  height: var(--form-height);
- bottom: - var(--form-height);
+ bottom: calc(-2 * var(--form-height));
+ width: var(--total-width);
  transition: all 0.7s;
  border-top: 1px solid var(--border-color);
 }
 .todo__form.show {
- bottom: 0;
+ bottom: calc(var(--form-height) / 2);
 }
 .todo__form input {
  padding: 5px 10px;
@@ -230,6 +231,16 @@ body {
  border: none;
  outline: none;
  border-radius: 5px;
+}
+.todo__form-exit {
+ position:absolute;
+ top: 10px;
+ right: 10px;
+ cursor: pointer;
+}
+.todo__form-exit .fa {
+ cursor: pointer;
+ pointer-events: none;
 }
 @media only screen and (max-width: 400px) {
  :root {
@@ -252,6 +263,9 @@ body {
  }
  .todo__form {
   width: var(--total-width);
+ }
+ .todo__form.show {
+  bottom: 0;
  }
  .todo__content-list-more {
   min-width: 57px;

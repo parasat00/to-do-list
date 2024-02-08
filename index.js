@@ -2,6 +2,7 @@ const todo_container = document.querySelector('.todo__content');
 const todo_form = document.querySelector(".todo__form");
 const todo_add = document.querySelector(".todo__header-nav-btns.add");
 const todo_btns = document.querySelectorAll(".todo__header-nav-btns");
+const form_exit = document.querySelector(".todo__form-exit");
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -201,3 +202,4 @@ todo_btns.forEach(btn => {
 renderTasks();
 todo_add.addEventListener("click", showForm);
 todo_form.addEventListener("submit", addTask);
+form_exit.addEventListener("click", () => {todo_form.classList.remove("show");});
