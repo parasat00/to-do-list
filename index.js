@@ -3,6 +3,12 @@ const todo_form = document.querySelector(".todo__form");
 const todo_add = document.querySelector(".todo__header-nav-btns.add");
 const todo_btns = document.querySelectorAll(".todo__header-nav-btns");
 const form_exit = document.querySelector(".todo__form-exit");
+const settings_btn = document.querySelector(".todo__header-settings");
+const theme_selectors = document.querySelectorAll(".todo__modal-window-colors-palette");
+const modal = document.querySelector(".todo__modal");
+const modal_exit = document.querySelector(".todo__modal-exit");
+const sec_colors = document.querySelectorAll(".todo__modal-window-secondary-colors");
+
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -188,6 +194,10 @@ const displayList = (e) => {
  );
 }
 
+const setTheme = (cs_var, color) => {
+ document.documentElement.style.setProperty(`--${cs_var}`, color);
+}
+
 todo_btns.forEach(btn => {
  filter = btn.className.split(" ")[1];
 
@@ -198,7 +208,28 @@ todo_btns.forEach(btn => {
  })
  }
 });
+
+theme_selectors.forEach(theme => {
+ theme.addEventListener("click", () => {
+  setTheme("header-color" , theme.dataset.color);
+  localStorage.setItem("header-color", theme.dataset.color);
+ })
+});
+
+sec_colors.forEach(sec => {
+ sec.addEventListener("click", () => {
+  const color = sec.dataset.color
+  const text_color = (color === "#121212") ? "#d5d5d5" : "#121212";
+  setTheme("content-back" , color);
+  setTheme("text-color", text_color);
+  localStorage.setItem("content-back", color);
+  localStorage.setItem("text-color", text_color);
+ })
+})
+
 renderTasks();
 todo_add.addEventListener("click", showForm);
 todo_form.addEventListener("submit", addTask);
 form_exit.addEventListener("click", () => {todo_form.classList.remove("show");});
+settings_btn.addEventListener("click", () => {modal.classList.add("show")})
+modal_exit.addEventListener("click", () => {modal.classList.remove("show")})

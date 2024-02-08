@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 :root {
- --back-color: #d6d6d6;
  --text-color: #000;
  --header-color: #cea27f;
  --header-text: #fff;
  --content-back: #fff;
- --active-text-color: #cea27f;
  --border-color: rgba(128, 128, 128, 0.4);
  --total-width: 400px;
  --nav-height: 190px;
@@ -24,7 +22,7 @@ body {
  display: flex;
  align-items: center;
  justify-content: center;
- background-color: var(--back-color);
+ background-color: var(--content-back);
  color: var(--text-color);
  font-family: 'Nunito', sans-serif;
 }
@@ -43,6 +41,17 @@ body {
  width: var(--total-width);
  z-index: 2;
  height: var(--nav-height);
+}
+.todo__header-settings {
+ position: absolute;
+ top: 15px;
+ right: 15px;
+ color: var(--header-text);
+ font-size: 1.5rem;
+ cursor: pointer;
+}
+.todo__header-settings .fa {
+ pointer-events: none;
 }
 
 .todo__header-banner {
@@ -78,14 +87,15 @@ body {
  z-index: 2;
  transition: all 0.5s;
  cursor: pointer;
+ color: var(--text-color);
 }
 .todo__header-nav-btns .fa {
  pointer-events: none;
 }
 .todo__header-nav-btns:hover,
 .todo__header-nav-btns.active {
- color: var(--active-text-color);
- border-bottom: 2px solid var(--active-text-color);
+ color: var(--header-color);
+ border-bottom: 2px solid var(--header-color);
 }
 .todo__header-nav-btns:hover ~ .todo__header-nav-btns.active,
 .todo__header-nav-btns:has(~ .todo__header-nav-btns:hover) {
@@ -121,6 +131,7 @@ body {
 }
 .todo__header-nav-btns.add:hover {
  background-color: #5d5d5d;
+ border: none;
 }
 .todo__content {
  background-color: var(--content-back);
@@ -241,6 +252,80 @@ body {
 .todo__form-exit .fa {
  cursor: pointer;
  pointer-events: none;
+}
+.todo__modal {
+ width: 100%;
+ height: 100vh;
+ background-color: rgba(0, 0, 0, 0.6);
+ position: relative;
+ z-index: 3;
+ display: none;
+}
+.todo__modal.show {
+ display: block;
+}
+.todo__modal-window {
+ width: 300px;
+ padding: 20px 15px;
+ box-sizing: border-box;
+ background-color: var(--content-back);
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+}
+.todo__modal-exit {
+ position: absolute;
+ top: 15px;
+ right: 15px;
+ cursor: pointer;
+}
+.todo__modal-exit .fa {
+ pointer-events: none;
+}
+.todo__modal-window-secondary,
+.todo__modal-window-colors {
+ display: flex;
+ justify-content: space-evenly;
+ align-items: center;
+ margin-top: 15px;
+}
+.todo__modal-window-secondary-colors {
+ border: 1px solid var(--header-color);
+}
+.todo__modal-window-secondary-colors,
+.todo__modal-window-colors-palette {
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ cursor: pointer;
+}
+.todo__modal-window-secondary-colors:hover {
+ border: 3px dashed var(--header-color);
+}
+.todo__modal-window-colors-palette:hover {
+ border: 3px dashed #000;
+}
+.todo__modal-window-colors-palette[data-color="#34A853"] {
+ background-color: #34A853;
+}
+.todo__modal-window-colors-palette[data-color="#ff2558"] {
+ background-color: #ff2558;
+}
+.todo__modal-window-colors-palette[data-color="#02dac5"] {
+ background-color: #02dac5;
+}
+.todo__modal-window-colors-palette[data-color="#bb86fc"] {
+ background-color: #bb86fc;
+}
+.todo__modal-window-colors-palette[data-color="#39c9fd"] {
+ background-color: #39c9fd;
+}
+.todo__modal-window-secondary-colors[data-color="#121212"] {
+ background-color: #121212;
+}
+.todo__modal-window-secondary-colors[data-color="#f5f5f5"] {
+ background-color: #f5f5f5;
 }
 @media only screen and (max-width: 400px) {
  :root {
