@@ -11,8 +11,8 @@
  --total-width: 400px;
  --nav-height: 190px;
  --content-height: 90vh;
- --form-height: 50px;
- --list-height: calc(var(--content-height) - var(--nav-height) - var(--form-height));
+ --form-height: 80px;
+ --list-height: calc(var(--content-height) - var(--nav-height));
 }
 * {
  margin: 0;
@@ -205,13 +205,14 @@ body {
  display: flex;
  align-items: center;
  gap: 10px;
- position: relative;
- top: 50px;
+ position: fixed;
+ height: var(--form-height);
+ bottom: - var(--form-height);
  transition: all 0.7s;
  border-top: 1px solid var(--border-color);
 }
 .todo__form.show {
- top: 0;
+ bottom: 0;
 }
 .todo__form input {
  padding: 5px 10px;
@@ -219,6 +220,7 @@ body {
 .todo__form-text-input {
  flex: 1;
  outline: none;
+ border: 1px solid #000;
 }
 .todo__form-btn {
  padding: 5px 10px;
